@@ -45,5 +45,9 @@ fn compare_dispatch_performance(c: &mut Criterion) {
     group.finish();
 }
 
-criterion_group!(benches, compare_dispatch_performance);
+criterion_group!(
+    name = benches;
+    config = Criterion::default().with_plots(); // 确保开启了绘图
+    targets = compare_dispatch_performance
+);
 criterion_main!(benches);
